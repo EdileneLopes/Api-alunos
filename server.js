@@ -18,22 +18,5 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
   console.log('Nosso servidor de alunos está rodando em !', server.info.uri);
 
 
-  exports.buscarAluno = async (req, h) => {
-    const db = req.server.plugins['hapi-mongodb'].db;
-    const repositorio = new AlunosRepository(db);
-    const aluno = await repositorio.getById(req.params.id);
-   console.log(aluno)
-    return aluno;
-  }
-
-   
-  // const media = {
-  //   prova1: req.payload["prova1"],
-  //   prova2: req.payload['prova2'],
-  //   trabalho: req.payload['trabalho'],
-  //   apresentacao: req.apresentacao['apresentacao']
-  // };
-  // console.log(media); 
-
 })()
 
