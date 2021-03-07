@@ -25,5 +25,11 @@ module.exports = [
       method: 'PUT',
       path: '/alunos/{id}',
       handler: AlunoController.atualizarAluno
-    }
+    },
+    {
+      method: 'PUT',
+      path: '/alunos/{id}/media',
+      handler: AlunoController.calcularMedia
+    },
+    
 ]
