@@ -44,15 +44,14 @@ exports.atualizarAluno = async (req, h) => {
 
 exports.calcularMedia = async (req, h) => {
   const db = req.server.plugins['hapi-mongodb'].db;
-  const  disciplinas = new AlunosRepository(db);
+  //const  disciplinas = new AlunosRepository(db);
   
-
- 
-  const media = {
-    prova1: req.payload["prova1"],
-    prova2: req.payload['prova2'],
-    trabalho: req.payload['trabalho'],
-    apresentacao: req.apresentacao['apresentacao']
-  };
+  //media
+    let prova1=req.payload["prova1"]
+    let prova2=req.payload['prova2']
+    let trabalho=req.payload['trabalho']
+    let apresentacao=req.apresentacao['apresentacao']
+    let media= prova1+prova2+trabalho+apresentacao
+    console.log(media); 
 
 }
