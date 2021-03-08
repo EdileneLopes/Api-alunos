@@ -15,7 +15,7 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
   rotas.forEach(rota => server.route(rota));
 
   await server.start();
-  console.log('Nosso servidor de alunos está rodando em !', server.info.uri);
+  console.log('Nosso servidor de alunos está rodando em ...', server.info.uri);
 
 
 })()
