@@ -9,12 +9,12 @@ exports.listarAlunos = async (req, h) => {
   const repositorio = new AlunosRepository(db);
   return repositorio.list();
 }
-  
+
 
 exports.inserirAluno = async (req, h) => {
   const db = req.server.plugins['hapi-mongodb'].db;
   const repoAlunos = new AlunosRepository(db);
- 
+
   return repoAlunos.insert(req.payload);
 }
 
@@ -36,65 +36,50 @@ exports.apagarAluno = async (req, h) => {
 exports.atualizarAluno = async (req, h) => {
   const db = req.server.plugins['hapi-mongodb'].db;
   const repoAlunos = new AlunosRepository(db);
-  const aluno =  req.payload;
-  
+  const aluno = req.payload;
+
   return repoAlunos.update(req.params.id, aluno);
-  
+
 }
 
 exports.calcularMedia = async (req, h) => {
-
-  /************************************** /
-   *  apresentacao comentando pois      *
-   * nao vem no payload do req          * 
-   * ********************************** */
-  
   const db = req.server.plugins['hapi-mongodb'].db;
   const repoAlunos = new AlunosRepository(db);
-    
-    //media
-    console.log('req:',req)
+  const aluno = req.payload;
 
-    const p1 = 30;
-		const p2 = 30;
-		const p3 = 15;
-		const p4 = 25;  
+  let conceito = "Não Definido"
+  let status = "Não Definido"
 
-   let prova1=req.payload["prova1"]
-   let prova2=req.payload['prova2']
-   let trabalho=req.payload['trabalho']
-   let apresentacao=req.payload['apresentacao']
-    
-   let media = ((prova1 * p1) + (prova2 * p2) + (trabalho * p3) + (apresentacao * p4)) / (p1 + p2 + p3 + p4)
+  const p1 = 3;
+  const p2 = 3;
+  const p3 = 1.5;
+  const p4 = 2.5;
 
-   console.log(req.payload);
-   console.log('Sua média ponderada é: ' + media); 
+  let media = ((req.payload.prova1 * p1) + (req.payload.prova2 * p2) + (req.payload.trabalho * p3) + (req.payload.apresentacao * p4)) / (p1 + p2 + p3 + p4)
 
-      
-   if(media>5)
-   {status='aprovado'
-      if (media>9){
-        conceito='A'
-      }
-      if (media>7){
-        conceito='B'
-      }else conceito='C'
-    
-   }
-   if(media<5)
-   {
-    status='reprovado'
-     if (media<3){
-      conceito='E'    }
-    else conceito='F'
+  req.payload.media = parseFloat(media.toFixed(1))
+  repoAlunos.update(req.params.id, aluno);
+
+  if (media >= 6 && media <= 10) {
+    status = 'aprovado'
+    if (media > 9) {
+      conceito = 'A'
+    }
+    if (media > 7) {
+      conceito = 'B'
+    } else conceito = 'C'
+
+  } else if (media >= 0 && media < 6) {
+    status = 'reprovado'
+    if (media < 3) {
+      conceito = 'E'
+    }
+    else conceito = 'D'
   }
-  
+ 
+  req.payload.status = status
+  req.payload.conceito= conceito
 
-    
-    var myquery = { status: "Valley 345" };
-    var newvalues = { $set: {media : "Mickey", conceito: "Canyon 123",  } };
-    db.aluno("alunos").updateOne(myquery, newvalues)
-    
-    return media.toFixed(2)
-
+  repoAlunos.update(req.params.id, aluno);
+  return req.payload;
 }
