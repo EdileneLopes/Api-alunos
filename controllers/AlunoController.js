@@ -42,26 +42,23 @@ exports.atualizarAluno = async (req, h) => {
   
 }
 
-exports.calcularMedia = async (req, h) => {
-
-  /************************************** 
-   *  apresentacao comentando pois      *
-   * nao vem no payload do req          * 
-   * ********************************** */
-  
-   const db = req.server.plugins['hapi-mongodb'].db;
+exports.calcularMedia = (req, h)  => {
+  const db = req.server.plugins['hapi-mongodb'].db;
   const repoAlunos = new AlunosRepository(db);
-    
-   //media
-   console.log('req:',req)
+  
+    const p1 = 30;
+		const p2 = 30;
+		const p3 = 15;
+		const p4 = 25;  
+
    let prova1=req.payload["prova1"]
    let prova2=req.payload['prova2']
    let trabalho=req.payload['trabalho']
-   console.log('apresen',req.payload['apresentacao']);
-   //let apresen=req.apresentacao['apresentacao']
-   let media= (prova1+prova2+trabalho)/3 //+apresentacao)/4
-   console.log(media); 
-  
-  return media
+   let apresentacao=req.payload['apresentacao']
+   let media = ((prova1 * p1) + (prova2 * p2) + (trabalho * p3) + (apresentacao * p4)) / (p1 + p2 + p3 + p4)
 
+   console.log(req.payload);
+   console.log('Sua média ponderada é: ' + media); 
+  
+    return media
 }
