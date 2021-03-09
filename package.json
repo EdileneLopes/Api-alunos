@@ -1,7 +1,7 @@
 {
   "name": "api-alunos",
   "version": "1.0.0",
-  "description": "Api para cadastro de alunos",
+  "description": "API para cadastro de alunos com persistência poliglota",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,6 +13,8 @@
     "@hapi/boom": "^9.1.1",
     "@hapi/hapi": "^20.1.0",
     "hapi-mongodb": "^9.0.2",
+    "hapi-swaggered": "^3.0.2",
+    "hapi-swaggered-ui": "^3.0.2",
     "joi": "^17.4.0",
     "mongodb": "^3.6.4",
     "node-fetch": "^2.6.1",
