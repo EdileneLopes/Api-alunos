@@ -1,10 +1,17 @@
+const boom = require ('@hapi/boom')
+
 function obterConfig(req) {
+  
     return req.headers['x-persistence'] === 'rest'
         ? 'http://localhost:8080'
         : req.server.plugins['hapi-mongodb'].db;
 }
 
 exports.listarAlunos = async (req, h) => {
+  /**
+   * @example
+   * exemplo localhost:3000/alunos
+   */
     const persistencia = req.headers['x-persistence'];
     const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
     const repositorio = new AlunosRepository(obterConfig(req));
@@ -12,14 +19,21 @@ exports.listarAlunos = async (req, h) => {
 }
 
 exports.buscarAluno = async (req, h) => {
+  /**
+   * @example
+   * exemplo localhost:3000/alunos/{id}
+   */
     const persistencia = req.headers['x-persistence'];
     const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
     const repositorio = new AlunosRepository(obterConfig(req));
     const aluno = await repositorio.getById(req.params.id);
     return aluno;
+    
+    
 }
 
 exports.inserirAluno = async (req, h) => {
+  
     const persistencia = req.headers['x-persistence'];
     const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
     const repositorio = new AlunosRepository(obterConfig(req));
@@ -41,6 +55,10 @@ exports.apagarAluno = async (req, h) => {
 }
 
 exports.calcularMedia = async (req, h) => {
+  /**
+   * @example
+   * exemplo localhost:3000/alunos/{id}/media
+   */
     const persistencia = req.headers['x-persistence'];
     const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
     const repoAlunos = new AlunosRepository(obterConfig(req));

@@ -61,7 +61,7 @@ class MongoDbRepository {
   /**
    * Faz alterações no cadastro do aluno a partir do id.
    * @param {*} id parâmetro para encontrar um único aluno
-   * @param {*} obj ??????????????
+   * @param {*} obj documento aluno
    * @returns O aluno com suas alterções
    */
   async update(id, obj) {
