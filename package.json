@@ -1,4 +1,4 @@
-{
+npm{
   "name": "api-alunos",
   "version": "1.0.0",
   "description": "Api para cadastro de alunos",
@@ -14,8 +14,10 @@
     "@hapi/hapi": "^20.1.0",
     "hapi-mongodb": "^9.0.2",
     "joi": "^17.4.0",
+    "jsdoc": "^3.6.6",
     "mongodb": "^3.6.4",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "vuepress-jsdoc": "^3.5.0"
   }
 }
