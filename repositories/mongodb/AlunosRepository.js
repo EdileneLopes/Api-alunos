@@ -13,3 +13,12 @@ class AlunosRepository extends MongoDbRepository {
 }
   
 module.exports = AlunosRepository;
+/* 
+const resultado = agrupamentos.reduce((acumulador, { total, categoria }) => {
+  acumulador[categoria] = total;
+  return acumulador;
+}, {});
+
+return resultado;
+}
+} */

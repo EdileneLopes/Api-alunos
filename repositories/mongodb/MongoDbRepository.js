@@ -71,6 +71,23 @@ class MongoDbRepository {
     });
     return modifiedAluno;
   }
+
+  async calcularMedia() {
+    const p1 = 30;
+		const p2 = 30;
+		const p3 = 15;
+		const p4 = 25;
+		
+		media = ((prova1 * p1) + (prova2 * p2) + (trabalho * p3) + (apresentacao * p4)) / (p1 + p2 + p3 + p4); 
+
+		return `Sua media ponderada é: ${media}`;
+  
+  }
 }
+
+
+
+
+
  
 module.exports = MongoDbRepository

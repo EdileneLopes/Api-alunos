@@ -30,5 +30,5 @@ module.exports = [
       method: 'PUT',
       path: '/alunos/{id}/media',
       handler: AlunoController.calcularMedia
-    }
+    },
 ]
