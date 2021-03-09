@@ -1,4 +1,4 @@
-const AlunoController = require('./controllers/AlunoController.js');
+const AlunoController = require('./controllers/AlunoControllerPoliglota.js');
 
 module.exports = [
     {
@@ -31,5 +31,4 @@ module.exports = [
       path: '/alunos/{id}/media',
       handler: AlunoController.calcularMedia
     },
-    
 ]
