@@ -1,52 +1,52 @@
 const AlunoController = require('./controllers/AlunoControllerPoliglota.js');
 
 module.exports = [
-    {
-      method: 'GET',
-      path: '/alunos',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.listarAlunos
+  {
+    method: 'GET',
+    path: '/alunos',
+    options: {
+      tags: ['api']
     },
-    {
-      method: 'GET',
-      path: '/alunos/{id}',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.buscarAluno
+    handler: AlunoController.listarAlunos
+  },
+  {
+    method: 'GET',
+    path: '/alunos/{id}',
+    options: {
+      tags: ['api']
     },
-    {
-      method: 'POST',
-      path: '/alunos',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.inserirAluno
+    handler: AlunoController.buscarAluno
+  },
+  {
+    method: 'POST',
+    path: '/alunos',
+    options: {
+      tags: ['api']
     },
-    {
-      method: 'DELETE',
-      path: '/alunos/{id}',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.apagarAluno
+    handler: AlunoController.inserirAluno
+  },
+  {
+    method: 'DELETE',
+    path: '/alunos/{id}',
+    options: {
+      tags: ['api']
     },
-    {
-      method: 'PUT',
-      path: '/alunos/{id}',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.atualizarAluno
+    handler: AlunoController.apagarAluno
+  },
+  {
+    method: 'PUT',
+    path: '/alunos/{id}',
+    options: {
+      tags: ['api']
     },
-    {
-      method: 'PUT',
-      path: '/alunos/{id}/media',
-      options: {
-        tags: ['api']
-      },
-      handler: AlunoController.calcularMedia
+    handler: AlunoController.atualizarAluno
+  },
+  {
+    method: 'PUT',
+    path: '/alunos/{id}/media',
+    options: {
+      tags: ['api']
     },
+    handler: AlunoController.calcularMedia
+  },
 ]

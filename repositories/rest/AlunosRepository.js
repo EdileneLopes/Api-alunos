@@ -10,5 +10,5 @@ class AlunosRepository extends RestRepository {
   }
 
 }
-  
+
 module.exports = AlunosRepository;

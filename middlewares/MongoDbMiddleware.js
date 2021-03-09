@@ -6,12 +6,12 @@ module.exports = async (server) => {
     plugin: hapiMongodb,
     options: {
       url: 'mongodb://localhost:27017/aluno',
-      
+
     },
     decorate: true,
-    
+
   });
 
- 
+
 }
 

@@ -6,9 +6,9 @@ const inert = require('inert');
 const rotas = require('./routes.js');
 const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
 
-(async function() {
-  
-  const server = Hapi.server({ 
+(async function () {
+
+  const server = Hapi.server({
     port: 3000,
     host: 'localhost'
   });
