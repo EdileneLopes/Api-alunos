@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const Headers = fetch.Headers;
 
 class RestRepository {
-    /**
+    /** É um repositório genérico 
      * @param {string} apiUrl URL base da API
      * @param {string} resourcePath caminho do resource iniciando com '/'
      */
@@ -16,6 +16,7 @@ class RestRepository {
     }
 
     get apiEndpoint() {
+        
         return `${this.apiUrl}${this.resourcePath}`;
     }
 

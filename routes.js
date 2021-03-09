@@ -48,5 +48,5 @@ module.exports = [
         tags: ['api']
       },
       handler: AlunoController.calcularMedia
-    }
+    },
 ]
