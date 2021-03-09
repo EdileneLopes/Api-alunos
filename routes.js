@@ -1,4 +1,4 @@
-const AlunoController = require('./controllers/AlunoController.js');
+const AlunoController = require('./controllers/AlunoControllerPoliglota.js');
 
 module.exports = [
     {
@@ -25,5 +25,10 @@ module.exports = [
       method: 'PUT',
       path: '/alunos/{id}',
       handler: AlunoController.atualizarAluno
+    },
+    {
+      method: 'PUT',
+      path: '/alunos/{id}/media',
+      handler: AlunoController.calcularMedia
     }
 ]
