@@ -1,10 +1,21 @@
-const boom = require('@hapi/boom')
+const jwt = require('jsonwebtoken');
+const Boom = require('@hapi/boom')
 
 function obterConfig(req) {
 
   return req.headers['x-persistence'] === 'rest'
     ? 'http://localhost:8080'
     : req.server.plugins['hapi-mongodb'].db;
+}
+
+function validarJwt(token) {
+  let valido = false;
+  try {
+    const payload = jwt.verify(token, 'chavesecreta');
+    valido = !!payload;
+  } catch {
+  }
+  return valido;
 }
 
 exports.listarAlunos = async (req, h) => {
@@ -94,7 +105,10 @@ exports.calcularMedia = async (req, h) => {
     req.payload.conceito = conceito
     req.payload.status = status
   } else {
-    req.payload.media = "A media ainda não pode ser calculada"
+    let error = Boom.unauthorized("Preencha todas as notas antes de calcular a media");
+    error.output.payload.message1 = 'Cada nota não pode ser menor que 0 e maior que 10';
+    error.output.payload.message2 = 'Digite apenas numeros';
+    return error;
   }
 
   repoAlunos.update(req.params.id, aluno);

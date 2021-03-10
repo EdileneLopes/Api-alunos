@@ -1,8 +1,19 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const MongoDbRepository = require('../repositories/mongodb/MongoDbRepository.js');
 const AlunosRepository = require('../repositories/mongodb/AlunosRepository.js');
+const jwt = require('jsonwebtoken');
 
 const connectionString = 'mongodb://localhost:27017/aluno';
+
+function validarJwt(token) {
+  let valido = false;
+  try {
+    const payload = jwt.verify(token, 'chavesecreta');
+    valido = !!payload;
+  } catch {
+  }
+  return valido;
+}
 
 exports.listarAlunos = async (req, h) => {
   const db = req.server.plugins['hapi-mongodb'].db;

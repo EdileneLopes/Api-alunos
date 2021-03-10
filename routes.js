@@ -1,4 +1,5 @@
 const AlunoController = require('./controllers/AlunoControllerPoliglota.js');
+const AdministradorController = require('./controllers/AdministradorController.js')
 
 module.exports = [
   {
@@ -48,5 +49,10 @@ module.exports = [
       tags: ['api']
     },
     handler: AlunoController.calcularMedia
+  },
+  {
+    method: 'POST',
+    path: '/token',
+    handler: AdministradorController.token
   },
 ]
