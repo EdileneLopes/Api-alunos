@@ -5,6 +5,7 @@ const vision = require('vision');
 const inert = require('inert');
 const rotas = require('./routes.js');
 const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
+const AdministradoMiddleware = require('./middlewares/AdministradorMiddleware.js');
 
 (async function () {
 
@@ -19,6 +20,7 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
     {
       plugin: swaggered,
       options: {
+        auth: false,
         info: {
           title: 'Persistência Poliglota',
           description: 'API - Sistema de Gerenciamento de Alunos - Que permite o Cadastro, Inclusão, Consulta e Exclusão de Alunos com Autenticação JSON Web Token - Persistência Poliglota',
@@ -39,8 +41,9 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
     {
       plugin: swaggeredUI,
       options: {
-        title: 'Example API',
-        path: '/docs',
+        auth: false,
+        title: 'API - Alunos',
+        path: '/doc',
         authorization: {
           field: 'apiKey',
           scope: 'query', // header works as well
@@ -56,6 +59,7 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
   ])
 
   await MongoDbMiddleware(server);
+  await AdministradoMiddleware(server);
 
   rotas.forEach(rota => server.route(rota));
 
@@ -63,5 +67,3 @@ const MongoDbMiddleware = require('./middlewares/MongoDbMiddleware.js');
   console.log('Nosso servidor de alunos está rodando em ...', server.info.uri);
 
 })()
-
-

@@ -1,12 +1,12 @@
 const AlunoController = require('./controllers/AlunoControllerPoliglota.js');
-const AdministradorController = require('./controllers/AdministradorController.js')
+const AdministradorController = require('./controllers/AdministradorController.js');
 
 module.exports = [
   {
     method: 'GET',
     path: '/alunos',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos']
     },
     handler: AlunoController.listarAlunos
   },
@@ -14,7 +14,8 @@ module.exports = [
     method: 'GET',
     path: '/alunos/{id}',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos'],
+      auth: false
     },
     handler: AlunoController.buscarAluno
   },
@@ -22,7 +23,7 @@ module.exports = [
     method: 'POST',
     path: '/alunos',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos']
     },
     handler: AlunoController.inserirAluno
   },
@@ -30,7 +31,7 @@ module.exports = [
     method: 'DELETE',
     path: '/alunos/{id}',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos']
     },
     handler: AlunoController.apagarAluno
   },
@@ -38,7 +39,7 @@ module.exports = [
     method: 'PUT',
     path: '/alunos/{id}',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos']
     },
     handler: AlunoController.atualizarAluno
   },
@@ -46,13 +47,16 @@ module.exports = [
     method: 'PUT',
     path: '/alunos/{id}/media',
     options: {
-      tags: ['api']
+      tags: ['api', 'alunos']
     },
     handler: AlunoController.calcularMedia
   },
   {
     method: 'POST',
     path: '/token',
+    options: {
+      tags: ['api', 'administrador']
+    },
     handler: AdministradorController.token
   },
 ]

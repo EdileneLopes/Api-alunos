@@ -8,7 +8,7 @@ module.exports = async (server) => {
     verify: {
       aud: false,
       iss: false,
-      sub: true,
+      sub: false,
       nbf: false,
       exp: false,
       maxAgeSec: 84600, // 24 hours
