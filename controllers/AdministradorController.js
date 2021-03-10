@@ -1,5 +1,6 @@
 const { MongoClient } = require('mongodb');
 const jwt = require('jsonwebtoken');
+const Boom = require('@hapi/boom')
 
 const connectionString = 'mongodb://localhost:27017/aluno';
 
@@ -7,36 +8,32 @@ exports.token = async (req, h) => {
   const response = h.response();
 
   const { authorization } = req.headers;
-
   if (!authorization) {
-    return h.response({ error: 'Authorization não foi enviado!' }).code(401);
+    return Boom.unauthorized('Authorization não foi enviado!');
   }
 
   const [scheme, valor] = authorization.split(' ');
 
   if (scheme !== 'Basic') {
-    return h.response({ error: 'Scheme inválido' }).code(401);
+    return Boom.unauthorized('Scheme inválido');
   }
 
   const credenciais = Buffer.from(valor, 'base64').toString();
   const [email, senha] = credenciais.split(':');
-
   if (!email || !senha) {
-    response.statusCode = 401;
-    return { error: 'Não existe usuário ou senha' };
+    return Boom.unauthorized('Não existe usuário ou senha');
   }
 
   const client = await MongoClient.connect(connectionString);
   const db = client.db('aluno');
 
-  const usuario = await db.collection('usuarios').findOne({ email, senha});
-
+  const usuario = await db.collection('usuarios').find({ email, senha });
   if (!usuario) {
-    response.statusCode = 401;
-    return { error: 'Usuário ou senha inválidos' };
+
+    return Boom.unauthorized('Usuário ou senha inválidos');
   }
 
-  const token = jwt.sign({ sub: usuario._id.toString() }, 'chavesecreta');
+  const token = jwt.sign({ sub: usuario.email }, 'chavesecreta');
 
   return {
     access_token: token,

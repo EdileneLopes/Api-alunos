@@ -6,18 +6,18 @@ module.exports = async (server) => {
   server.auth.strategy('autorizacao_jwt', 'jwt', {
     keys: 'chavesecreta',
     verify: {
-        aud: false,
-        iss: false,
-        sub: false,
-        nbf: false,
-        exp: false,
-        maxAgeSec: 84600, // 24 hours
-        timeSkewSec: 15
+      aud: false,
+      iss: false,
+      sub: true,
+      nbf: false,
+      exp: false,
+      maxAgeSec: 84600, // 24 hours
+      timeSkewSec: 15
     },
     validate: (artifacts, request, h) => {
-        return {
-            isValid: true,
-        };
+      return {
+        isValid: true,
+      };
     }
   });
 
