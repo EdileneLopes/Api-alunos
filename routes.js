@@ -55,7 +55,8 @@ module.exports = [
     method: 'POST',
     path: '/token',
     options: {
-      tags: ['api', 'administrador']
+      tags: ['api', 'administrador'],
+      auth: false
     },
     handler: AdministradorController.token
   },

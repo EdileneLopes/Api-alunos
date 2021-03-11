@@ -1,21 +1,17 @@
 const jwt = require('jsonwebtoken');
-const Boom = require('@hapi/boom')
+const Boom = require('@hapi/boom');
+const Ajv = require("ajv").default;
+const localize = require('ajv-i18n/localize/pt-BR');
+const alunoSchema = require('../schema/Aluno.json');
+
+const ajv = new Ajv({ allErrors: true })
+const validateAluno = ajv.compile(alunoSchema)
 
 function obterConfig(req) {
 
   return req.headers['x-persistence'] === 'rest'
     ? 'http://localhost:8080'
     : req.server.plugins['hapi-mongodb'].db;
-}
-
-function validarJwt(token) {
-  let valido = false;
-  try {
-    const payload = jwt.verify(token, 'chavesecreta');
-    valido = !!payload;
-  } catch {
-  }
-  return valido;
 }
 
 exports.listarAlunos = async (req, h) => {
@@ -44,7 +40,13 @@ exports.buscarAluno = async (req, h) => {
 }
 
 exports.inserirAluno = async (req, h) => {
-
+  const valid = validateAluno(req.payload)
+  if (!valid) {
+   let error = Boom.badData("Não foi possível processar as instruções presentes da Entidade Aluno.");
+   localize(validateAluno.errors);
+   error.output.payload.Aluno = validateAluno.errors;
+   return error;
+  } 
   const persistencia = req.headers['x-persistence'];
   const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
   const repositorio = new AlunosRepository(obterConfig(req));
@@ -52,6 +54,13 @@ exports.inserirAluno = async (req, h) => {
 }
 
 exports.atualizarAluno = async (req, h) => {
+  const valid1 = validateAluno(req.payload);
+  if (!valid1) {
+   let error = Boom.badData("Não foi possível processar as instruções presentes da Entidade Aluno.");
+   localize(validateAluno.errors);
+   error.output.payload.Aluno = validateAluno.errors;
+   return error;
+  } 
   const persistencia = req.headers['x-persistence'];
   const AlunosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
   const repositorio = new AlunosRepository(obterConfig(req));
@@ -66,6 +75,17 @@ exports.apagarAluno = async (req, h) => {
 }
 
 exports.calcularMedia = async (req, h) => {
+  let prova1 = req.payload.prova1
+  let prova2 = req.payload.prova2
+  let trabalho = req.payload.trabalho
+  let apresentacao = req.payload.apresentacao
+  const valid = validateAluno(req.payload);
+  if (!valid) {
+   let error = Boom.badData("Não foi possível processar as instruções presentes da Entidade Aluno.");
+   localize(validateAluno.errors);
+   error.output.payload.media = validateAluno.errors;
+   return error;
+  }
   /**
    * @example
    * exemplo localhost:3000/alunos/{id}/media
@@ -75,15 +95,12 @@ exports.calcularMedia = async (req, h) => {
   const repoAlunos = new AlunosRepository(obterConfig(req));
   const aluno = req.payload;
 
-  let conceito = "Não Definido"
-  let status = "Não Definido"
-
   const p1 = 3;
   const p2 = 3;
   const p3 = 1.5;
   const p4 = 2.5;
 
-  media = ((req.payload.prova1 * p1) + (req.payload.prova2 * p2) + (req.payload.trabalho * p3) + (req.payload.apresentacao * p4)) / (p1 + p2 + p3 + p4)
+  media = ((prova1 * p1) + (prova2 * p2) + (trabalho * p3) + (apresentacao * p4)) / (p1 + p2 + p3 + p4)
 
   if (media >= 6 && media <= 10) {
     status = 'aprovado'
