@@ -39,230 +39,73 @@
     ],
     "properties": {
         "nome": {
-            "$id": "#/properties/nome",
             "type": "string",
-            "title": "The nome schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-                " Rubens"
-            ]
+            "maxLength": 50
         },
         "telefone": {
-            "$id": "#/properties/telefone",
             "type": "string",
-            "title": "The telefone schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-                "987124569"
-            ]
+            "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
         },
         "matricula": {
-            "$id": "#/properties/matricula",
-            "type": "string",
-            "title": "The matricula schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": "",
-            "examples": [
-                "122"
-            ]
+            "type": "string"
         },
         "endereco": {
-            "$id": "#/properties/endereco",
             "type": "object",
-            "title": "The endereco schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": {},
-            "examples": [
-                {
-                    "cep": "08343320",
-                    "logradouro": "Tiradentes",
-                    "numero": "153",
-                    "cidade": "São Roque",
-                    "estado": "SP"
-                }
-            ],
-            "required": [
-                "cep",
-                "logradouro",
-                "numero",
-                "cidade",
-                "estado"
-            ],
             "properties": {
                 "cep": {
-                    "$id": "#/properties/endereco/properties/cep",
                     "type": "string",
-                    "title": "The cep schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "08343320"
-                    ]
+                    "pattern": "(^/d{5}-/d{3}$)"
                 },
                 "logradouro": {
-                    "$id": "#/properties/endereco/properties/logradouro",
-                    "type": "string",
-                    "title": "The logradouro schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "Tiradentes"
-                    ]
+                    "type": "string"
                 },
                 "numero": {
-                    "$id": "#/properties/endereco/properties/numero",
-                    "type": "string",
-                    "title": "The numero schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "153"
-                    ]
+                    "type": "string"
                 },
                 "cidade": {
-                    "$id": "#/properties/endereco/properties/cidade",
-                    "type": "string",
-                    "title": "The cidade schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "São Roque"
-                    ]
+                    "type": "string"
                 },
                 "estado": {
-                    "$id": "#/properties/endereco/properties/estado",
-                    "type": "string",
-                    "title": "The estado schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                        "SP"
-                    ]
+                    "type": "string"
                 }
             },
             "additionalProperties": true
         },
         "disciplinas": {
-            "$id": "#/properties/disciplinas",
             "type": "object",
-            "title": "The disciplinas schema",
-            "description": "An explanation about the purpose of this instance.",
-            "default": {},
-            "examples": [
-                {
-                    "nodejs": {
-                        "prova1": 0,
-                        "prova2": 0,
-                        "apresentacao": 0,
-                        "trabalho": 0,
-                        "media": 0,
-                        "conceito": "E",
-                        "status": "reprovado"
-                    }
-                }
-            ],
             "required": [
                 "nodejs"
             ],
             "properties": {
                 "nodejs": {
-                    "$id": "#/properties/disciplinas/properties/nodejs",
                     "type": "object",
-                    "title": "The nodejs schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": {},
-                    "examples": [
-                        {
-                            "prova1": 0,
-                            "prova2": 0,
-                            "apresentacao": 0,
-                            "trabalho": 0,
-                            "media": 0,
-                            "conceito": "E",
-                            "status": "reprovado"
-                        }
-                    ],
                     "required": [
                         "prova1",
                         "prova2",
                         "apresentacao",
-                        "trabalho",
-                        "media",
-                        "conceito",
-                        "status"
+                        "trabalho"
                     ],
                     "properties": {
                         "prova1": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/prova1",
-                            "type": "integer",
-                            "title": "The prova1 schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": 0,
-                            "examples": [
-                                0
-                            ]
+                            "type": "integer"
                         },
                         "prova2": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/prova2",
-                            "type": "integer",
-                            "title": "The prova2 schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": 0,
-                            "examples": [
-                                0
-                            ]
+                            "type": "integer"
                         },
                         "apresentacao": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/apresentacao",
-                            "type": "integer",
-                            "title": "The apresentacao schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": 0,
-                            "examples": [
-                                0
-                            ]
+                            "type": "integer"
                         },
                         "trabalho": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/trabalho",
-                            "type": "integer",
-                            "title": "The trabalho schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": 0,
-                            "examples": [
-                                0
-                            ]
+                            "type": "integer"
                         },
                         "media": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/media",
-                            "type": "integer",
-                            "title": "The media schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": 0,
-                            "examples": [
-                                0
-                            ]
+                            "type": "integer"
                         },
                         "conceito": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/conceito",
-                            "type": "string",
-                            "title": "The conceito schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                                "E"
-                            ]
+                            "type": "string"
                         },
                         "status": {
-                            "$id": "#/properties/disciplinas/properties/nodejs/properties/status",
-                            "type": "string",
-                            "title": "The status schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                                "reprovado"
-                            ]
+                            "type": "string"
                         }
                     },
                     "additionalProperties": true

@@ -1,21 +1,21 @@
 const jwt = require('jsonwebtoken');
-const Boom = require('@hapi/boom')
+const Boom = require('@hapi/boom');
+const Ajv = require("ajv").default;
+const alunoSchema = require('../schema/Aluno.json')
+const alunoController = require('../controllers/AlunoController.js')
+
+const ajv = new Ajv({allErrors: true});
+const validate = ajv.compile(alunoSchema);
+const data=require(alunoController);
+const isValid = validate(data)
+
+if (!isValid) console.log(validate.errors)
 
 function obterConfig(req) {
 
   return req.headers['x-persistence'] === 'rest'
     ? 'http://localhost:8080'
     : req.server.plugins['hapi-mongodb'].db;
-}
-
-function validarJwt(token) {
-  let valido = false;
-  try {
-    const payload = jwt.verify(token, 'chavesecreta');
-    valido = !!payload;
-  } catch {
-  }
-  return valido;
 }
 
 exports.listarAlunos = async (req, h) => {
