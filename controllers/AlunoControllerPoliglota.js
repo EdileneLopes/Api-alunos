@@ -124,6 +124,7 @@ exports.calcularMedia = async (req, h) => {
     return error;
   }
 
+
   repoAlunos.update(req.params.id, aluno);
   return req.payload;
 }
