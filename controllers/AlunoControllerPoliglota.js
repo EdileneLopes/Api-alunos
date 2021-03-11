@@ -1,11 +1,23 @@
 const jwt = require('jsonwebtoken');
 const Boom = require('@hapi/boom');
 const Ajv = require("ajv").default;
+<<<<<<< HEAD
 const localize = require('ajv-i18n/localize/pt-BR');
 const alunoSchema = require('../schema/Aluno.json');
 
 const ajv = new Ajv({ allErrors: true })
 const validateAluno = ajv.compile(alunoSchema)
+=======
+const alunoSchema = require('../schema/Aluno.json')
+const alunoController = require('../controllers/AlunoController.js')
+
+const ajv = new Ajv({allErrors: true});
+const validate = ajv.compile(alunoSchema);
+const data=require(alunoController);
+const isValid = validate(data)
+
+if (!isValid) console.log(validate.errors)
+>>>>>>> schema
 
 function obterConfig(req) {
 
