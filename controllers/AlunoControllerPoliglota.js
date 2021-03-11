@@ -75,10 +75,6 @@ exports.apagarAluno = async (req, h) => {
 }
 
 exports.calcularMedia = async (req, h) => {
-  let prova1 = req.payload.prova1
-  let prova2 = req.payload.prova2
-  let trabalho = req.payload.trabalho
-  let apresentacao = req.payload.apresentacao
   const valid = validateAluno(req.payload);
   if (!valid) {
    let error = Boom.badData("Não foi possível processar as instruções presentes da Entidade Aluno.");
@@ -100,7 +96,7 @@ exports.calcularMedia = async (req, h) => {
   const p3 = 1.5;
   const p4 = 2.5;
 
-  media = ((prova1 * p1) + (prova2 * p2) + (trabalho * p3) + (apresentacao * p4)) / (p1 + p2 + p3 + p4)
+  media = ((aluno.prova1 * p1) + (aluno.prova2 * p2) + (aluno.trabalho * p3) + (aluno.apresentacao * p4)) / (p1 + p2 + p3 + p4)
 
   if (media >= 6 && media <= 10) {
     status = 'aprovado'

@@ -40,12 +40,7 @@
             "maxLength": 50
         },
         "telefone": {
-<<<<<<< HEAD
             "type": "string"
-=======
-            "type": "string",
-            "pattern": "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
->>>>>>> schema
         },
         "matricula": {
             "type": "string"
@@ -54,12 +49,7 @@
             "type": "object",
             "properties": {
                 "cep": {
-<<<<<<< HEAD
                     "type": "string"
-=======
-                    "type": "string",
-                    "pattern": "(^/d{5}-/d{3}$)"
->>>>>>> schema
                 },
                 "logradouro": {
                     "type": "string"
@@ -78,24 +68,9 @@
         },
         "disciplinas": {
             "type": "object",
-<<<<<<< HEAD
             "properties": {
                 "[a-zA-Z0-9]+$": {
                     "type": "object",
-=======
-            "required": [
-                "nodejs"
-            ],
-            "properties": {
-                "nodejs": {
-                    "type": "object",
-                    "required": [
-                        "prova1",
-                        "prova2",
-                        "apresentacao",
-                        "trabalho"
-                    ],
->>>>>>> schema
                     "properties": {
                         "prova1": {
                             "type": "integer"
