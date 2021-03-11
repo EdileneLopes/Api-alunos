@@ -13,6 +13,8 @@
     "@hapi/boom": "^9.1.1",
     "@hapi/hapi": "^20.1.0",
     "@hapi/jwt": "^2.0.1",
+    "ajv": "^7.2.1",
+    "ajv-i18n": "^3.6.0",
     "hapi-mongodb": "^9.0.2",
     "hapi-swaggered": "^3.0.2",
     "hapi-swaggered-ui": "^3.0.2",
