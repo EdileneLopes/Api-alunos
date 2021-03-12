@@ -17,10 +17,10 @@
     <img alt="Gamados por Java" src="https://img.shields.io/badge/Grupo - Gamados por Java-tomato">
   </a>
 
-<h4 align="center">🚧 Persistencia Poliglota 🚀 🚧</h4>
+<h2 align="center">🚧 Persistencia Poliglota 🚀 🚧</h2>
 
-Um dos motivos de usarmos esse tipo de persistência é que tivemos o desafio de integrar back-end com back-end (Java e Node) uma API chamando a outra, onde deixamos nossos métodos genéricos o suficiente para chamar às duas APIs.
-Uma persistência Utilizando Node.js e MongoDB e outra com Java e MySQL para persistir os dados recebidos pela API.
+**Um dos motivos de usarmos esse tipo de persistência é que tivemos o desafio de integrar back-end com back-end (Java e Node) uma API chamando a outra, onde deixamos nossos métodos genéricos o suficiente para chamar às duas APIs.
+Uma persistência Utilizando Node.js e MongoDB e outra com Java e MySQL para persistir os dados recebidos pela API.**
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
@@ -41,6 +41,12 @@ Projeto desenvolvido durante o **Treinamento Java e Node** oferecida pela [Gama 
 ---
 
 ## :+1: Aprendizados
+Node.js, modulos, pacotes...
+JavaScript, Fundamentos a Orientação a Objeto, tipos de dados (estruturas), funções: parametros, arrow functions, callbacks...
+JSON: Objeto JSON, desestruturação de Objetos...
+Promisses
+API de CRUD básica através de requisições HTTP diretas usando o Postman, mostrando domínio em RESTful APIs. 
+Demonstrar a aplicação de uma persistência poliglota desse CRUD, utilizando tanto banco de dados relacionais como outros serviços (SOA).
 
 ---
 
@@ -51,7 +57,6 @@ Projeto desenvolvido durante o **Treinamento Java e Node** oferecida pela [Gama 
 ---
 
 ## ⚙️ [](https://github.com/EdileneLopes/Api-alunos#funcionalidades)**Funcionalidades**
-
 - [x] Alunos podem se cadastrar na plataforma enviando:
   - Nome, Telefone, Matricula
   
@@ -59,21 +64,22 @@ Projeto desenvolvido durante o **Treinamento Java e Node** oferecida pela [Gama 
   - Acesso ao CRUD onde permite o gerenciamento
     - A Criação de Novos Alunos, Cursos, Disciplinas, Notas
     - Pesquisa e Leitura
-    - Ediçao
+    - Edição
     - Exclusão
 
 - [x] Validações:
-  - Utilizando JSON Schema
+  - Utilizando [JSON Schema](https://github.com/EdileneLopes/Api-alunos/blob/master/schema/Aluno.json)
     - Validação de Estrutura e Documentos JSON
-    - Definir atributos obrigatorios, tipagem, tamanho entre outros.
+    - Definir atributos obrigatórios, tipagem, tamanho entre outros.
     - Documentação clara, legível por humanos e por máquina
   - Utilizando Ajv e Ajv-i18n
-    - Ajv
+    - Ajv implementa a especificação do esquema JSON
     - Ajv-i18n Traz Mensagens de erro internacionalizadas para Ajv, disponibilizando acesso a diversos idiomas
   - Utilizando Hapi/Boom
-    - HTTP o código correto e mais amigavel no envio com um objeto estruturado e mensagem personalizada.    
+    - HTTP o código correto e mais amigável no envio com um objeto estruturado e mensagem personalizada. 
+    
 - [x] JSON Web Token / JWT:
-  -  Como uma forma de garantir a autenticação e autorização de rotas e usuarios.
+  -  Como uma forma de garantir a autenticação e autorização de rotas e usuários.
     
 ---
 
@@ -114,7 +120,10 @@ $ npm start
 
 # O servidor inciará na porta:3000 - Acesse: http://localhost:3000
 ```
-[Acesse a Documentação com Swagger UI](http://localhost:3000/doc) ou http://localhost:3000/doc
+***[Acesse a Documentação com Swagger UI](http://localhost:3000/doc)***
+```
+http://localhost:3000/doc
+```
 
 ## Autenticação
 
@@ -175,9 +184,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ](https://github.com/node-fetch/node-fetch)
 -  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/nodemon?style=plastic">
 ](https://github.com/remy/nodemon)
--  [mongo.io](http://mongodb.github.io/node-mongodb-native/)
--  [hapi](https://hapi.dev/)
--  [nodemon.io](https://nodemon.io/)
 
    > Veja o arquivo  [package.json](https://github.com/EdileneLopes/Api-alunos/blob/master/package.json)*
 
