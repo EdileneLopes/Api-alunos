@@ -19,8 +19,8 @@
 
 <h2 align="center">🚧 Persistencia Poliglota 🚀 🚧</h2>
 
-**Um dos motivos de usarmos esse tipo de persistência é que tivemos o desafio de integrar back-end com back-end (Java e Node) uma API chamando a outra, onde deixamos nossos métodos genéricos o suficiente para chamar às duas APIs.
-Uma persistência Utilizando Node.js e MongoDB e outra com Java e MySQL para persistir os dados recebidos pela API.**
+**<p align="center">Um dos motivos de usarmos esse tipo de persistência é que tivemos o desafio de integrar back-end com back-end (Java e Node) uma API chamando a outra, onde deixamos nossos métodos genéricos o suficiente para chamar às duas APIs.
+Uma persistência Utilizando Node.js e MongoDB e outra com Java e MySQL para persistir os dados recebidos pela API.</p>**
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
@@ -41,11 +41,11 @@ Projeto desenvolvido durante o **Treinamento Java e Node** oferecida pela [Gama 
 ---
 
 ## :+1: Aprendizados
-Node.js, modulos, pacotes...
-JavaScript, Fundamentos a Orientação a Objeto, tipos de dados (estruturas), funções: parametros, arrow functions, callbacks...
-JSON: Objeto JSON, desestruturação de Objetos...
-Promisses
-API de CRUD básica através de requisições HTTP diretas usando o Postman, mostrando domínio em RESTful APIs. 
+Conceitos da linguagem JavaScript com Node.js, orientação a objetos, modulos, pacotes, funções: parametros, arrow functions, callbacks.
+JSON: Objeto JSON, desestruturação de Objetos.
+Promisses.
+
+API de CRUD básica através de requisições HTTP diretas usando o Postman, mostrando domínio em RESTful APIs.
 Demonstrar a aplicação de uma persistência poliglota desse CRUD, utilizando tanto banco de dados relacionais como outros serviços (SOA).
 
 ---
@@ -120,7 +120,7 @@ $ npm start
 
 # O servidor inciará na porta:3000 - Acesse: http://localhost:3000
 ```
-***[Acesse a Documentação com Swagger UI](http://localhost:3000/doc)***
+[Acesse a Documentação com Swagger UI](http://localhost:3000/doc)
 ```
 http://localhost:3000/doc
 ```
@@ -159,31 +159,20 @@ A rota padrão para as operações é `/alunos`.
 As seguintes ferramentas foram usadas na construção do projeto:
 
 #### []()**Server**  ([NodeJS](https://nodejs.org/en/))
+
 -  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/@hapi/boom?style=plastic">](https://github.com/hapijs/boom)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/@hapi/hapi?style=plastic">
-](https://github.com/hapijs/hapi)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/@hapi/jwt?style=plastic">
-](https://github.com/hapijs/jwt)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/ajv?style=plastic">
-](https://github.com/ajv-validator/ajv)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/ajv-i18n?style=plastic">
-](https://github.com/ajv-validator/ajv-i18n)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-mongodb?style=plastic">
-](https://github.com/Marsup/hapi-mongodb)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-swaggered?style=plastic">
-](https://github.com/z0mt3c/hapi-swaggered)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-swaggered-ui?style=plastic">
-](https://github.com/z0mt3c/hapi-swaggered-ui)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/joi?style=plastic">
-](https://github.com/sideway/joi)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/jsonwebtoken?style=plastic">
-](https://github.com/auth0/node-jsonwebtoken)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/mongodb?style=plastic">
-](https://github.com/mongodb/node-mongodb-native)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/node-fetch?style=plastic">
-](https://github.com/node-fetch/node-fetch)
--  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/nodemon?style=plastic">
-](https://github.com/remy/nodemon)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/@hapi/hapi?style=plastic">](https://github.com/hapijs/hapi)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/@hapi/jwt?style=plastic">](https://github.com/hapijs/jwt)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/ajv?style=plastic">](https://github.com/ajv-validator/ajv)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/ajv-i18n?style=plastic">](https://github.com/ajv-validator/ajv-i18n)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-mongodb?style=plastic">](https://github.com/Marsup/hapi-mongodb)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-swaggered?style=plastic">](https://github.com/z0mt3c/hapi-swaggered)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/hapi-swaggered-ui?style=plastic">](https://github.com/z0mt3c/hapi-swaggered-ui)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/joi?style=plastic">](https://github.com/sideway/joi)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/jsonwebtoken?style=plastic">](https://github.com/auth0/node-jsonwebtoken)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/mongodb?style=plastic">](https://github.com/mongodb/node-mongodb-native)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/node-fetch?style=plastic">](https://github.com/node-fetch/node-fetch)
+-  [<img src="https://img.shields.io/github/package-json/dependency-version/edilenelopes/Api-alunos/nodemon?style=plastic">](https://github.com/remy/nodemon)
 
    > Veja o arquivo  [package.json](https://github.com/EdileneLopes/Api-alunos/blob/master/package.json)*
 
